@@ -41,7 +41,7 @@ public class Restsatz{
         int z=multiply(dual2, x);
         System.out.println("Kontrolle:");
         for(int i = 0 ; i< g ; i++){
-                System.out.println(a[i]+"*"+z+" = "+mod(a[i]*z,m[i])+" mod "+ m[i]);
+                System.out.println(a[i]+"*"+z+" = "+mod(a[i]*z,m[i])+" mod "+ m[i]);//1*z
         }
         
     }
@@ -54,21 +54,21 @@ public class Restsatz{
             return a;
 
        }
-        public static int multiply(int[] m){
+        public static int multiply(int[] m){//Multiply vector entries
             int mul=1;
             for(int i=0; i< m.length; i++){
                 mul=mul*m[i];
             }
             return mul;
         }
-        public static int multiply(int[] m, int[] x){
+        public static int multiply(int[] m, int[] x){ //Multiply two vectors
             int sum=0;
             for(int i=0; i< m.length; i++){
                 sum=sum+x[i]*m[i];
             }
             return sum;
         }
-        public static int invInB(int a, int b){
+        public static int invInB(int a, int b){ //extended Euklidean algorithm, return inv(a) in Z_b
             int x0=1;int y1=1;
             int y0=0; int x1=0;
             int q=a/b;
@@ -89,7 +89,7 @@ public class Restsatz{
             System.out.println("q="+q+"\ta="+a+"\tb="+b+"\t"+x0+"\t"+y0+"\t"+x1+"\t"+y1);
             return x0;
        }  
-    public static int mod(int s, int m){
+    public static int mod(int s, int m){ //mathematical mod, not java mod (problems for s<0), not needed jet
         int erg=s%m;
         if(s<0){erg=(-1)*((s)/m)*m+m+(s);}
         return erg;
